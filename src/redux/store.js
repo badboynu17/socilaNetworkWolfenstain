@@ -1,5 +1,8 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import profileReducer from "./profile-reduser";
+import dialogReducer from "./dialog-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
+
 let store = {
     _state: {
         profilePage: {
@@ -26,8 +29,10 @@ let store = {
                 {id: 2, message: 'Kak ono?'},
                 {id: 3, message: 'Tyazhelo'},
                 {id: 4, message: 'Mozhesh raschitivat na menya'}
-            ]
-        }
+            ],
+            newMessageBody: ""
+        },
+        sidebar: {}
     },
     _callSubscriber() {
         console.log('State was changed');
@@ -40,25 +45,16 @@ let store = {
         this._callSubscriber = observer; //патерн наблюдатель publishesubscriber
     },
     dispatch(action) {//{type:'ADD-POST'}
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
             this._callSubscriber(this._state);
         }
-    },
 }
-export const addPostActionCreator = () => ({type: ADD_POST})
 
-export const updateNewPostTextActionCreator = (text) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+
 
 
 export default store;

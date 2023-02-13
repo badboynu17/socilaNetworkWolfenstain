@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Routes, Route,} from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/Dialogs-container";
 
 let dialogs = () => <dialogs/>
 let messages = () => <messages/>
@@ -23,13 +24,10 @@ const App = (props) => {/* const мы присваивоем переменно�
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path='/profile' //следит за url
-                               element={<Profile profilePage={props.state.profilePage}
-                                                 dispatch = {props.dispatch}
-                               />}/>
+                               element={<Profile />}/>
 
                         <Route path="/dialogs"
-                               element={<Dialogs state={props.state.dialogsPage}
-                                                state={props.state.dialogsPage}/>}/>
+                               element={<DialogsContainer  />}/>
                         {/*<Route path='dialogs/*' element={<Dialogs/>}/>*/}
                     </Routes>
                 </div>

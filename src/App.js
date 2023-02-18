@@ -3,9 +3,9 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
-import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Routes, Route,} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/Dialogs-container";
+import UsersContainer from "./components/Users/UsersContainer";
 
 let dialogs = () => <dialogs/>
 let messages = () => <messages/>
@@ -27,8 +27,10 @@ const App = (props) => {/* const мы присваивоем переменно�
                                element={<Profile />}/>
 
                         <Route path="/dialogs"
-                               element={<DialogsContainer  />}/>
+                               element={<DialogsContainer />}/>
                         {/*<Route path='dialogs/*' element={<Dialogs/>}/>*/}
+                        <Route path="/users"
+                               element={<UsersContainer />}/>
                     </Routes>
                 </div>
             </div>

@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
 import {BrowserRouter, Routes, Route,} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/Dialogs-container";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+
 
 let dialogs = () => <dialogs/>
 let messages = () => <messages/>
+
 
 const App = (props) => {/* const мы присваивоем переменной
  App (функиця* возвращает разметку jsx(использование html сразу в JS )
@@ -18,24 +20,27 @@ const App = (props) => {/* const мы присваивоем переменно�
     return ( // снизу корневой узел div
 
 
-            <div className=/*это грид*/'app-wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Routes>
-                        <Route path='/profile' //следит за url
-                               element={<Profile />}/>
+        <div className=/*это грид*/'app-wrapper'>
+            <HeaderContainer/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Routes>
+                    <Route path="/profile"
+                           element={<ProfileContainer/>}/>
 
-                        <Route path="/dialogs"
-                               element={<DialogsContainer />}/>
-                        {/*<Route path='dialogs/*' element={<Dialogs/>}/>*/}
-                        <Route path="/users"
-                               element={<UsersContainer />}/>
-                    </Routes>
-                </div>
+                    <Route path='/profile/:userId?'
+                        element={<ProfileContainer/>}/>
+
+                    <Route path="/dialogs"
+                           element={<DialogsContainer/>}/>
+                    {/*<Route path='dialogs/*' element={<Dialogs/>}/>*/}
+                    <Route path="/users"
+                           element={<UsersContainer/>}/>
+                </Routes>
             </div>
+        </div>
 
-        )
+    )
 }
 
 

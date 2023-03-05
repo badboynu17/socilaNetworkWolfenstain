@@ -25,6 +25,7 @@ class UsersContainer extends React.Component {
     }
 
     onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);//перенести в thunk
         this.props.getUsers(pageNumber,this.props.pageSize);
 
 

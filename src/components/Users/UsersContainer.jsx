@@ -9,6 +9,8 @@ import {
 
 import Users from "./Users";
 import Preloader from "../Dialogs/common/Preloader";
+import {compose} from "redux";
+import {withAuthNavigate} from "../../Hoc/withAuthNavigate";
 
 
 
@@ -86,12 +88,15 @@ let mapStateToProps = (state) => {
     }
 
 }*/
-export default connect(mapStateToProps,
+
+
+export default compose (
+    withAuthNavigate,
+    connect(mapStateToProps,
     {follow,
         unfollow,
         setCurrentPage,
         toggleIsFollowingInProgress,
-      getUsers
-    })
-(UsersContainer);
+        getUsers
+    }))(UsersContainer)
 

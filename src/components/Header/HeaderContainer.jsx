@@ -5,12 +5,13 @@ import {getAuthUserData} from "../../redux/auth-reduser";
 
 
 class HeaderContainer extends React.Component {
-    render() {
-        return <Header{...this.props} />
-        this.componentDidMount()
+    componentDidMount()
         {
            this.props.getAuthUserData();
         }
+    render() {
+        return <Header{...this.props} />
+
     }
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import Profile from './Profile'
-import axios from "axios";
 import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profile-reduser";
 import {
@@ -53,6 +52,6 @@ function withRouter(Component) {
 export default compose(
     connect(mapStateToProps, {getUserProfile}),
     withRouter,
-    withAuthNavigate
+   // withAuthNavigate
 )(ProfileContainer);
 

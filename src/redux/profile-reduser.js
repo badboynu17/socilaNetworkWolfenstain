@@ -40,7 +40,7 @@ const profileReducer = (state = initialState, action) => {
         case SET_STATUS: {
             return {
                 ...state,
-               status: action.status
+                status: action.status
             }
         }
             ;
@@ -72,7 +72,7 @@ export const updateStatus = (status) => (dispatch) => {
     profileAPI.updateStatus(status)
         .then(response => {
             if (response.data.resultCode === 0)
-            dispatch(setStatus(status));
+                dispatch(setStatus(status));
         });
 }
 export const updateNewPostTextActionCreator = (text) =>

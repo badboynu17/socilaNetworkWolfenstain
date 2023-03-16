@@ -3,8 +3,6 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post'
 
 
-
-
 const MyPosts = (props) => {
     /* let postData = [
          {id: 0, message: 'Hi, how are you?',likesCount:23},
@@ -21,7 +19,6 @@ const MyPosts = (props) => {
     let onPostChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
-
 
 
     }

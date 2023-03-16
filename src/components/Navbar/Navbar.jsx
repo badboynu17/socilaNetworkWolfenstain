@@ -9,15 +9,16 @@ const SelectedLink = () => {
 
 const Navbar = () => {
     return (
-    <nav className={s.nav}>
+        <nav className={s.nav}>
             <div className={s.item}>
-              <NavLink to="/profile" className={SelectedLink()}> Profile</NavLink> {/*меняет url на выбранное значение */}
+                <NavLink to="/profile"
+                         className={SelectedLink()}> Profile</NavLink> {/*меняет url на выбранное значение */}
             </div>
 
             <div className={`${s.item} ${s.active}`}>
                 <NavLink to="/dialogs" className={SelectedLink()}>Dialogs</NavLink>
             </div>
-        <div className={`${s.item} ${s.active}`}>
+            <div className={`${s.item} ${s.active}`}>
                 <NavLink to="/users" className={SelectedLink()}>Users</NavLink>
             </div>
 
@@ -33,6 +34,6 @@ const Navbar = () => {
             <div className={s.item}>
                 <NavLink to="/settings" className={SelectedLink()}>Settings</NavLink>
             </div>
-        </nav> )
+        </nav>)
 }
 export default Navbar

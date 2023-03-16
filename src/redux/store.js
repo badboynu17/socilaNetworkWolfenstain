@@ -49,12 +49,9 @@ let store = {
         this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action);
         this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
-            this._callSubscriber(this._state);
-        }
+        this._callSubscriber(this._state);
+    }
 }
-
-
-
 
 
 export default store;

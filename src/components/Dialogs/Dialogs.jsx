@@ -6,21 +6,18 @@ import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialo
 import {Navigate} from "react-router-dom";
 
 
-
-
-
 const Dialogs = (props) => {
     let state = props.dialogsPage;
 
     let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>);
-    let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id} />);
-    let newMessageBody = state. newMessageBody;
+    let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id}/>);
+    let newMessageBody = state.newMessageBody;
 
-    let onSendMessageClick =()=> {
+    let onSendMessageClick = () => {
         props.sendMessage();
     }
-    let onNewMessageChange =(e)=> {
- let body = e.target.value;
+    let onNewMessageChange = (e) => {
+        let body = e.target.value;
         props.updateNewMessageBody(body);
     }
     if (!props.isAuth) return <Navigate to={"/login"}/>;
@@ -36,10 +33,12 @@ const Dialogs = (props) => {
                 <div>
                     <div>
                         <div><textarea value={newMessageBody}
-                                       onChange ={onNewMessageChange}
-                                       placeholder='Enter your message' >
+                                       onChange={onNewMessageChange}
+                                       placeholder='Enter your message'>
                         </textarea></div>
-                        <div><button onClick={onSendMessageClick}>Send</button></div>
+                        <div>
+                            <button onClick={onSendMessageClick}>Send</button>
+                        </div>
                     </div>
                 </div>
             </div>

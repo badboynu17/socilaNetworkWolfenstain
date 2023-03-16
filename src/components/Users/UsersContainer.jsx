@@ -13,10 +13,9 @@ import {compose} from "redux";
 import {withAuthNavigate} from "../../Hoc/withAuthNavigate";
 
 
-
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage,this.props.pageSize);
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
         /*this.props.toggleIsFetching(true);
         usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
        .then(data => {
@@ -28,7 +27,7 @@ class UsersContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);//перенести в thunk
-        this.props.getUsers(pageNumber,this.props.pageSize);
+        this.props.getUsers(pageNumber, this.props.pageSize);
 
 
     }
@@ -90,13 +89,14 @@ let mapStateToProps = (state) => {
 }*/
 
 
-export default compose (
+export default compose(
     withAuthNavigate,
     connect(mapStateToProps,
-    {follow,
-        unfollow,
-        setCurrentPage,
-        toggleIsFollowingInProgress,
-        getUsers
-    }))(UsersContainer)
+        {
+            follow,
+            unfollow,
+            setCurrentPage,
+            toggleIsFollowingInProgress,
+            getUsers
+        }))(UsersContainer)
 

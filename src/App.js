@@ -13,15 +13,13 @@ let dialogs = () => <dialogs/>
 let messages = () => <messages/>
 
 
-const App = (props) => {/* const мы присваивоем переменной
- App (функиця* возвращает разметку jsx(использование html сразу в JS )
-  стрелочную функцию => */
+const App = (props) => {
 
 
     return ( // снизу корневой узел div
 
 
-        <div className=/*это грид*/'app-wrapper'>
+        <div className='app-wrapper'>
             <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper-content'>
@@ -34,7 +32,7 @@ const App = (props) => {/* const мы присваивоем переменно�
 
                     <Route path="/dialogs"
                            element={<DialogsContainer/>}/>
-                    {/*<Route path='dialogs/*' element={<Dialogs/>}/>*/}
+                    
                     <Route path="/users"
                            element={<UsersContainer/>}/>
 

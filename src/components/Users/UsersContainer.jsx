@@ -16,13 +16,6 @@ import {withAuthNavigate} from "../../Hoc/withAuthNavigate";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
-        /*this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
-       .then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-        });*/
     }
 
     onPageChanged = (pageNumber) => {
@@ -63,30 +56,7 @@ let mapStateToProps = (state) => {
 
     }
 }
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId));
-        },
-        setUsers: (userId) => {
-            dispatch(setUsersAC(userId));
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountAC(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
 
-    }
-
-}*/
 
 
 export default compose(
